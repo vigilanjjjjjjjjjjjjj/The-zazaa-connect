@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Zaza Connect | Culture, Community and Digital Growth</title>
+<meta name="description" content="The Zaza Connect: premium lifestyle, beauty, a weekly debate with a R1000 prize, and digital marketing built to compound.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#070816; --panel:#0E1030; --line:#262A5C;
+  --ice:#E8ECFF; --mute:#9AA2D6;
+  --cyan:#3DF2FF; --uv:#8B5CFF; --mag:#FF3DA8;
+  --grad:linear-gradient(100deg,var(--cyan),var(--uv) 55%,var(--mag));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--ice);font-family:'Sora',system-ui,sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.logo{font-family:'Unbounded','Sora',sans-serif;line-height:1.1}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:10;background:rgba(7,8,22,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.1rem;letter-spacing:.02em}
+.logo i{display:inline-block;width:10px;height:10px;margin-right:8px;background:var(--grad);border-radius:50%;box-shadow:0 0 14px var(--cyan)}
+nav ul{display:flex;gap:28px;list-style:none;font-size:.9rem}
+nav ul a{color:var(--mute);transition:color .2s}
+nav ul a:hover{color:var(--cyan)}
+.btn{display:inline-block;font-family:'Unbounded',sans-serif;font-weight:600;font-size:.85rem;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;color:var(--void);background:var(--grad);box-shadow:0 0 28px rgba(61,242,255,.35);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(255,61,168,.5)}
+.btn.ghost{background:transparent;color:var(--ice);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* carousel */
+.show{position:relative;margin-top:64px;border-bottom:1px solid var(--line)}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 100%;height:calc(100svh - 64px);min-height:460px;scroll-snap-align:start;display:flex;align-items:flex-end;background-size:cover;background-position:center}
+.s1{background-image:url(images/indoor-strain.jpg),radial-gradient(circle at 30% 40%,#1c6b3a,#06140b 70%)}
+.s2{background-image:url(images/makeup-set.jpg),radial-gradient(circle at 70% 40%,#c2247d,#1a0620 70%)}
+.s3{background-image:url(images/debate-community.jpg),radial-gradient(circle at 50% 40%,#3b2fd0,#070816 70%)}
+.slide::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,8,22,.92),rgba(7,8,22,.15) 60%)}
+.slide .cap{position:relative;z-index:2;padding:0 24px 100px;max-width:1120px;margin:0 auto;width:100%}
+.slide h2{font-size:clamp(1.8rem,5vw,3.6rem);max-width:18ch;margin-bottom:12px}
+.slide p{max-width:46ch;color:var(--ice);margin-bottom:22px}
+.arrow{position:absolute;bottom:14px;z-index:5;width:44px;height:44px;line-height:1;border-radius:50%;border:1px solid var(--cyan);background:rgba(7,8,22,.6);color:var(--cyan);font-size:1.4rem;cursor:pointer;backdrop-filter:blur(6px);box-shadow:0 0 18px rgba(61,242,255,.35)}
+.arrow:hover{background:var(--cyan);color:var(--void)}
+.prev{left:16px}.next{right:16px}
+.dots{position:absolute;bottom:34px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:5}
+.dots button{width:34px;height:5px;border:0;border-radius:9px;background:rgba(232,236,255,.35);cursor:pointer}
+.dots button.on{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.age{font-size:.8rem;color:var(--mute)}
+
+/* debate */
+.prize{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.prize .panel b{display:block;font-family:'Unbounded',sans-serif;font-size:clamp(2.6rem,7vw,4.6rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.panel ul{margin:14px 0 0 18px;color:var(--mute);font-size:.95rem}
+.panel li{margin-bottom:8px}
+.topic{font-family:'Unbounded',sans-serif;font-size:1.15rem;margin:10px 0 14px}
+
+/* hero */
+.hero{position:relative;min-height:80svh;display:flex;align-items:center;padding:90px 0 70px;overflow:hidden}
+#field{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.1rem,6.4vw,4.9rem);font-weight:800;max-width:15ch;letter-spacing:-.02em}
+.hero p{max-width:50ch;margin:26px 0 36px;color:var(--mute);font-size:1.1rem}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.live{display:flex;gap:clamp(18px,4vw,52px);flex-wrap:wrap;margin-top:64px;padding-top:26px;border-top:1px solid var(--line)}
+.live div{min-width:120px}
+.live b{display:block;font-family:'Unbounded',sans-serif;font-size:clamp(1.3rem,3vw,2rem);font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.live span{font-size:.82rem;color:var(--mute)}
+.pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-right:8px;animation:pl 1.6s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(61,242,255,.7)}100%{box-shadow:0 0 0 12px rgba(61,242,255,0)}}
+
+section{padding:110px 0}
+h2{font-size:clamp(1.6rem,4vw,2.7rem);font-weight:600;max-width:22ch;margin-bottom:18px}
+.lead{color:var(--mute);max-width:56ch;margin-bottom:56px}
+
+/* capabilities */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.card{position:relative;background:linear-gradient(160deg,var(--panel),#0A0C26);border:1px solid var(--line);padding:30px;overflow:hidden;transition:border-color .25s}
+.card:hover{border-color:var(--cyan)}
+.card::after{content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;background:var(--c,var(--cyan));opacity:.12;filter:blur(30px)}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:12px}
+.card p{color:var(--mute);font-size:.95rem}
+.c1{grid-column:span 3;--c:var(--cyan);border-radius:28px 6px 28px 6px}
+.c2{grid-column:span 3;--c:var(--mag);border-radius:6px 28px 6px 28px}
+.c3,.c4,.c5{grid-column:span 2;--c:var(--uv);border-radius:6px}
+.c4{--c:var(--cyan)}.c5{--c:var(--mag)}
+
+/* dashboard */
+.dash{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+.panel h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.panel small{color:var(--mute)}
+#chart{width:100%;height:240px;margin-top:14px}
+.bars{display:grid;gap:18px;margin-top:18px}
+.bar label{display:flex;justify-content:space-between;font-size:.88rem;color:var(--mute);margin-bottom:6px}
+.bar div{height:8px;background:#161a45;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:99px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.step{padding:30px 24px 0 0;position:relative}
+.step::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+.step em{font-style:normal;font-family:'Unbounded',sans-serif;font-size:.8rem;color:var(--cyan)}
+.step h3{font-size:1.05rem;margin:8px 0}
+.step p{color:var(--mute);font-size:.92rem}
+
+/* contact */
+.contact{background:radial-gradient(900px 400px at 80% 0,rgba(139,92,255,.22),transparent),var(--void);border-top:1px solid var(--line)}
+.contact .box{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+form{display:grid;gap:14px}
+input,select,textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px;color:var(--ice);font:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(61,242,255,.18)}
+textarea{min-height:110px;resize:vertical}
+#ok{display:none;color:var(--cyan)}
+footer{padding:34px 0;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:860px){
+  nav ul{display:none}
+  .grid>.card{grid-column:span 6}
+  .dash,.contact .box{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  section{padding:80px 0}
+}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo"><i></i>The Zaza Connect</a>
+    <ul>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#debate">Debate</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#process">Process</a></li>
+    </ul>
+    <a href="#contact" class="btn">Get a growth plan</a>
+  </div>
+</nav>
+
+<section class="show" aria-label="Featured">
+  <div class="slides" id="slides" tabindex="0">
+    <article class="slide s1"><div class="cap"><h2>Indoor grown. Top shelf.</h2><p>Hand-picked indoor strains, shown the way they deserve to be seen.</p><a href="#contact" class="btn">Ask about a strain</a><p class="age" style="margin:14px 0 0">18+ only. Know and follow your local laws.</p></div></article>
+    <article class="slide s2"><div class="cap"><h2>The makeup edit.</h2><p>Our favourite sets and shades, chosen for a flawless finish.</p><a href="#contact" class="btn">Shop the edit</a></div></article>
+    <article class="slide s3"><div class="cap"><h2>Debate. Win R1000.</h2><p>A new online room where real topics get real arguments. Best debater of the week takes the cash.</p><a href="#debate" class="btn">Enter the debate</a></div></article>
+  </div>
+  <button class="arrow prev" aria-label="Previous image">&#8249;</button>
+  <button class="arrow next" aria-label="Next image">&#8250;</button>
+  <div class="dots" id="dots"></div>
+</section>
+
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1>Marketing that runs like a machine and grows like a network.</h1>
+    <p>We connect your ads, search, social and email into one measured system, then tune it every day until it compounds.</p>
+    <div class="cta">
+      <a href="#contact" class="btn">Get a growth plan</a>
+      <a href="#results" class="btn ghost">See the numbers</a>
+    </div>
+    <div class="live" aria-label="Live network totals">
+      <div><b id="n1">0</b><span><i class="pulse"></i>Impressions served today</span></div>
+      <div><b id="n2">0</b><span>Leads captured this week</span></div>
+      <div><b id="n3">0</b><span>Average return on ad spend</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="capabilities">
+  <div class="wrap">
+    <h2>Five systems. One signal.</h2>
+    <p class="lead">Each channel is strong alone. Wired together, they share data, so every click teaches the next one.</p>
+    <div class="grid">
+      <article class="card c1"><h3>Search and SEO</h3><p>Technical audits, content that ranks, and local search. You show up when buyers are already looking.</p></article>
+      <article class="card c2"><h3>Paid media</h3><p>Google, Meta, TikTok and LinkedIn campaigns with budgets that shift toward whatever converts best.</p></article>
+      <article class="card c3"><h3>Social growth</h3><p>Short video, community and creator partnerships that build an audience you own.</p></article>
+      <article class="card c4"><h3>Automation</h3><p>Email, SMS and chat flows that follow up with every lead in seconds, at any hour.</p></article>
+      <article class="card c5"><h3>Analytics</h3><p>One dashboard tying spend to revenue, so you always know what is working and why.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="debate">
+  <div class="wrap">
+    <h2>The weekly debate. R1000 to the winner.</h2>
+    <p class="lead">A social space built for arguing ideas, not people. Every week we post one topic, and anyone can step in and make their case.</p>
+    <div class="prize">
+      <div class="panel">
+        <small>This week's prize</small>
+        <b>R1000</b>
+        <p class="topic">Topic: Is feminism still needed today?</p>
+        <p style="color:var(--mute);font-size:.95rem">Open to women and men. Argue either side, as long as your points are backed by reasons. Topics rotate weekly and cover politics, gender, masculinity, culture and more.</p>
+        <p style="margin-top:20px"><a href="#contact" class="btn">Join the waitlist</a></p>
+      </div>
+      <div class="panel">
+        <h3>How it works</h3>
+        <ul>
+          <li>We post a new topic every week.</li>
+          <li>Join the chat room and debate in your own words.</li>
+          <li>Rule one: attack the argument, never the person. Hate speech and threats are removed.</li>
+          <li>The community votes and our moderators review. One winner takes R1000.</li>
+          <li>Winners are announced when the week closes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results" style="background:linear-gradient(180deg,transparent,rgba(14,16,48,.6),transparent)">
+  <div class="wrap">
+    <h2>Growth you can watch happen.</h2>
+    <p class="lead">A sample client view: traffic and qualified leads over 12 months after launch. Illustrative data; replace with your own case studies.</p>
+    <div class="dash">
+      <div class="panel">
+        <h3>Qualified leads per month</h3><small>Month 1 to month 12</small>
+        <canvas id="chart" role="img" aria-label="Line chart showing qualified leads rising steadily over twelve months"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Typical lift after 6 months</h3><small>Sample client average</small>
+        <div class="bars">
+          <div class="bar"><label><span>Organic traffic</span><span>+212%</span></label><div><i data-w="82"></i></div></div>
+          <div class="bar"><label><span>Cost per lead</span><span>-47%</span></label><div><i data-w="47"></i></div></div>
+          <div class="bar"><label><span>Conversion rate</span><span>+138%</span></label><div><i data-w="66"></i></div></div>
+          <div class="bar"><label><span>Email revenue share</span><span>+64%</span></label><div><i data-w="40"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <h2>From scan to scale in four moves.</h2>
+    <p class="lead">A clear sequence with a measurable result at each stage.</p>
+    <div class="steps">
+      <div class="step"><em>Step 1</em><h3>Scan</h3><p>We audit your site, ads, competitors and data to find the biggest gaps.</p></div>
+      <div class="step"><em>Step 2</em><h3>Build</h3><p>We set up tracking, creative, landing pages and automations.</p></div>
+      <div class="step"><em>Step 3</em><h3>Launch</h3><p>Campaigns go live across channels with daily monitoring.</p></div>
+      <div class="step"><em>Step 4</em><h3>Scale</h3><p>We put more budget behind winners and cut the rest, then report weekly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap box">
+    <div>
+      <h2>Tell us your goal. We will map the route.</h2>
+      <p class="lead" style="margin-bottom:0">Share a few details and get a free growth plan with the first three moves we would make. We reply within one business day.</p>
+    </div>
+    <form id="lead" novalidate>
+      <input type="text" name="name" placeholder="Your name" aria-label="Your name" required>
+      <input type="email" name="email" placeholder="Work email" aria-label="Work email" required>
+      <input type="text" name="site" placeholder="Website (optional)" aria-label="Website">
+      <select name="goal" aria-label="Main goal">
+        <option value="">Main goal</option>
+        <option>Join the weekly debate</option><option>More leads</option><option>More online sales</option><option>Better search ranking</option><option>Lower ad costs</option>
+      </select>
+      <textarea name="msg" placeholder="Anything else we should know?" aria-label="Message"></textarea>
+      <button class="btn" type="submit">Send my request</button>
+      <p id="ok" role="status">Request sent. We will be in touch within one business day.</p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>&copy; 2026 The Zaza Connect</span><span>Built on data. Driven by results.</span></div></footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* carousel */
+  var sl=document.getElementById('slides'),dt=document.getElementById('dots'),sn=sl.children,bt=[];
+  for(var i=0;i<sn.length;i++)(function(i){var b=document.createElement('button');b.setAttribute('aria-label','Go to image '+(i+1));b.onclick=function(){sl.scrollTo({left:i*sl.clientWidth})};dt.appendChild(b);bt.push(b)})(i);
+  function mark(){var k=Math.round(sl.scrollLeft/sl.clientWidth);bt.forEach(function(b,i){b.className=i===k?'on':''})}
+  sl.addEventListener('scroll',mark);mark();
+  document.querySelector('.prev').onclick=function(){sl.scrollBy({left:-sl.clientWidth})};
+  document.querySelector('.next').onclick=function(){sl.scrollBy({left:sl.clientWidth})};
+  sl.addEventListener('keydown',function(e){if(e.key==='ArrowRight')sl.scrollBy({left:sl.clientWidth});if(e.key==='ArrowLeft')sl.scrollBy({left:-sl.clientWidth})});
+
+  /* hero: data streams flowing into a central core */
+  var c=document.getElementById('field'),x=c.getContext('2d'),W,H,P=[],cols=['61,242,255','139,92,255','255,61,168'];
+  function size(){var r=devicePixelRatio||1;W=c.width=c.offsetWidth*r;H=c.height=c.offsetHeight*r;x.setTransform(1,0,0,1,0,0);
+    P=[];var n=Math.min(110,Math.floor(c.offsetWidth/9));
+    for(var i=0;i<n;i++)P.push({a:Math.random()*6.283,d:Math.random(),s:.0015+Math.random()*.003,k:cols[i%3]});}
+  function draw(){
+    x.clearRect(0,0,W,H);
+    var cx=W*.74,cy=H*.46,R=Math.max(W,H)*.75;
+    var g=x.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*.35);
+    g.addColorStop(0,'rgba(139,92,255,.35)');g.addColorStop(1,'rgba(7,8,22,0)');
+    x.fillStyle=g;x.fillRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){
+      var p=P[i];if(!reduce)p.d-=p.s;if(p.d<0){p.d=1;p.a=Math.random()*6.283}
+      var r=p.d*R,px=cx+Math.cos(p.a)*r,py=cy+Math.sin(p.a)*r*.7;
+      var r2=(p.d+.06)*R,qx=cx+Math.cos(p.a)*r2,qy=cy+Math.sin(p.a)*r2*.7;
+      var al=Math.min(1,(1-p.d)*1.4);
+      x.strokeStyle='rgba('+p.k+','+al*.8+')';x.lineWidth=1.4*(devicePixelRatio||1);
+      x.beginPath();x.moveTo(qx,qy);x.lineTo(px,py);x.stroke();
+    }
+    x.fillStyle='#3DF2FF';x.shadowColor='#3DF2FF';x.shadowBlur=30;
+    x.beginPath();x.arc(cx,cy,6*(devicePixelRatio||1),0,6.283);x.fill();x.shadowBlur=0;
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  size();draw();addEventListener('resize',function(){size();if(reduce)draw()});
+
+  /* live counters */
+  var n1=document.getElementById('n1'),n2=document.getElementById('n2'),n3=document.getElementById('n3');
+  var v1=2480000,v2=18240;
+  function fmt(n){return Math.floor(n).toLocaleString('en-US')}
+  function show(){n1.textContent=fmt(v1);n2.textContent=fmt(v2);n3.textContent='6.4x'}
+  show();
+  if(!reduce)setInterval(function(){v1+=Math.random()*90+20;if(Math.random()<.18)v2+=1;show()},700);
+
+  /* growth chart + bars, drawn when scrolled into view */
+  var ch=document.getElementById('chart'),cx2=ch.getContext('2
