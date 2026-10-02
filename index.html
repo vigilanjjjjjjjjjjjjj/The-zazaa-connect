@@ -143,6 +143,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 }
 @media(max-width:520px){.steps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* pop-up forms, debate room, mobile fixes */
+.modal{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(3,4,14,.82);backdrop-filter:blur(6px)}
+.modal[hidden]{display:none}
+.mbox{position:relative;width:min(560px,100%);height:min(88svh,800px);display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--cyan);border-radius:22px;box-shadow:0 0 50px rgba(61,242,255,.3);overflow:hidden}
+.mbox h3{padding:18px 60px 12px 22px;font-size:1rem}
+.mbox iframe{flex:1;width:100%;border:0;background:#fff}
+.mx{position:absolute;top:10px;right:12px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ice);font-size:1.5rem;line-height:1;cursor:pointer}
+.mx:hover{border-color:var(--cyan);color:var(--cyan)}
+.alt{padding:10px 18px;font-size:.8rem;color:var(--mute);text-align:center}
+.room{margin-top:18px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.room p{color:var(--mute);max-width:58ch;font-size:.95rem}
+.s3{background-repeat:no-repeat}
+@media(min-width:861px){.s3{background-size:cover,auto 78%,cover;background-position:center,right 6% top 6%,center}}
+@media(max-width:860px){.s3{background-size:cover,auto 60%,cover;background-position:center,center 3%,center}}
+@media(max-width:520px){.logo{font-size:.85rem}.logo i{margin-right:6px}nav .btn{padding:10px 14px;font-size:.68rem;white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -162,9 +177,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="show" aria-label="Featured">
   <div class="slides" id="slides" tabindex="0">
-    <article class="slide s1"><div class="cap"><h2>Indoor grown. Top shelf.</h2><p>Hand-picked indoor strains, shown the way they deserve to be seen.</p><a href="#contact" class="btn">Ask about a strain</a><p class="age" style="margin:14px 0 0">18+ only. Know and follow your local laws.</p></div></article>
-    <article class="slide s2"><div class="stage"><img class="ph" src="images/makeup-model.jpg" alt="Model with a bold pink hairstyle taking a mirror selfie"><span class="fl" style="left:-20%;top:4%;--r:-14deg;--d:5.2s;width:17%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7ac8"/><stop offset="1" stop-color="#c2247d"/></linearGradient></defs><rect x="24" y="30" width="16" height="26" rx="3" fill="#1b1c3a" stroke="#3DF2FF" stroke-width="1.5"/><rect x="26" y="14" width="12" height="18" rx="2" fill="url(#g1)"/><path d="M26 14 L38 8 V14Z" fill="#ff3da8"/></svg></span><span class="fl" style="left:-26%;top:62%;--r:10deg;--d:6.4s;width:24%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CFF"/><stop offset="1" stop-color="#3DF2FF"/></linearGradient></defs><rect x="6" y="14" width="52" height="38" rx="6" fill="#1b1c3a" stroke="#8B5CFF" stroke-width="1.5"/><circle cx="19" cy="26" r="7" fill="#ff3da8"/><circle cx="45" cy="26" r="7" fill="url(#g2)"/><circle cx="19" cy="42" r="7" fill="#ffd27a"/><circle cx="45" cy="42" r="7" fill="#c2247d"/><path d="M10 52 L54 52" stroke="#8B5CFF"/></svg></span><span class="fl" style="right:-16%;top:0;--r:22deg;--d:5.8s;width:15%"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="29" y="26" width="6" height="32" rx="3" fill="#d9b88f"/><rect x="27" y="20" width="10" height="8" fill="#3DF2FF"/><path d="M32 4 C42 12 40 20 32 22 C24 20 22 12 32 4Z" fill="#ff3da8"/></svg></span><span class="fl" style="right:-22%;top:40%;--r:-8deg;--d:4.9s;width:17%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3DF2FF"/><stop offset="1" stop-color="#8B5CFF"/></linearGradient></defs><rect x="20" y="28" width="24" height="28" rx="7" fill="url(#g4)"/><rect x="26" y="12" width="12" height="18" rx="2" fill="#1b1c3a" stroke="#ff3da8" stroke-width="1.5"/><rect x="27" y="36" width="10" height="12" rx="3" fill="rgba(255,255,255,.35)"/></svg></span><span class="fl" style="right:-18%;bottom:-2%;--r:12deg;--d:6.8s;width:21%"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="#1b1c3a" stroke="#ff3da8" stroke-width="2"/><circle cx="32" cy="32" r="17" fill="#3DF2FF" opacity=".25"/><path d="M22 26 Q28 18 38 20" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span><span class="fl" style="left:-17%;top:36%;--r:18deg;--d:5.5s;width:13%"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="26" y="26" width="12" height="34" rx="4" fill="#1b1c3a" stroke="#8B5CFF" stroke-width="1.5"/><rect x="28" y="6" width="8" height="22" rx="3" fill="#ff3da8"/><path d="M28 10h8M28 14h8M28 18h8" stroke="#fff" stroke-width="1" opacity=".6"/></svg></span><span class="fl" style="left:14%;top:-9%;--r:0deg;--d:3.8s;width:9%"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16Z" fill="#3DF2FF"/></svg></span></div><div class="cap"><h2>The makeup edit.</h2><p>Our favourite sets and shades, chosen for a flawless finish.</p><a href="#contact" class="btn">Shop the edit</a></div></article>
-    <article class="slide s3"><div class="cap"><h2>Debate. Win R1000.</h2><p>A new online room where real topics get real arguments. Best debater of the week takes the cash.</p><a href="#debate" class="btn">Enter the debate</a></div></article>
+    <article class="slide s1"><div class="cap"><h2>Indoor grown. Top shelf.</h2><p>Hand-picked indoor strains, shown the way they deserve to be seen.</p><button class="btn" data-open="strain">Ask about a strain</button><p class="age" style="margin:14px 0 0">18+ only. Know and follow your local laws.</p></div></article>
+    <article class="slide s2"><div class="stage"><img class="ph" src="images/makeup-model.jpg" alt="Model with a bold pink hairstyle taking a mirror selfie"><span class="fl" style="left:-20%;top:4%;--r:-14deg;--d:5.2s;width:17%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7ac8"/><stop offset="1" stop-color="#c2247d"/></linearGradient></defs><rect x="24" y="30" width="16" height="26" rx="3" fill="#1b1c3a" stroke="#3DF2FF" stroke-width="1.5"/><rect x="26" y="14" width="12" height="18" rx="2" fill="url(#g1)"/><path d="M26 14 L38 8 V14Z" fill="#ff3da8"/></svg></span><span class="fl" style="left:-26%;top:62%;--r:10deg;--d:6.4s;width:24%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CFF"/><stop offset="1" stop-color="#3DF2FF"/></linearGradient></defs><rect x="6" y="14" width="52" height="38" rx="6" fill="#1b1c3a" stroke="#8B5CFF" stroke-width="1.5"/><circle cx="19" cy="26" r="7" fill="#ff3da8"/><circle cx="45" cy="26" r="7" fill="url(#g2)"/><circle cx="19" cy="42" r="7" fill="#ffd27a"/><circle cx="45" cy="42" r="7" fill="#c2247d"/><path d="M10 52 L54 52" stroke="#8B5CFF"/></svg></span><span class="fl" style="right:-16%;top:0;--r:22deg;--d:5.8s;width:15%"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="29" y="26" width="6" height="32" rx="3" fill="#d9b88f"/><rect x="27" y="20" width="10" height="8" fill="#3DF2FF"/><path d="M32 4 C42 12 40 20 32 22 C24 20 22 12 32 4Z" fill="#ff3da8"/></svg></span><span class="fl" style="right:-22%;top:40%;--r:-8deg;--d:4.9s;width:17%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3DF2FF"/><stop offset="1" stop-color="#8B5CFF"/></linearGradient></defs><rect x="20" y="28" width="24" height="28" rx="7" fill="url(#g4)"/><rect x="26" y="12" width="12" height="18" rx="2" fill="#1b1c3a" stroke="#ff3da8" stroke-width="1.5"/><rect x="27" y="36" width="10" height="12" rx="3" fill="rgba(255,255,255,.35)"/></svg></span><span class="fl" style="right:-18%;bottom:-2%;--r:12deg;--d:6.8s;width:21%"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="#1b1c3a" stroke="#ff3da8" stroke-width="2"/><circle cx="32" cy="32" r="17" fill="#3DF2FF" opacity=".25"/><path d="M22 26 Q28 18 38 20" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span><span class="fl" style="left:-17%;top:36%;--r:18deg;--d:5.5s;width:13%"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="26" y="26" width="12" height="34" rx="4" fill="#1b1c3a" stroke="#8B5CFF" stroke-width="1.5"/><rect x="28" y="6" width="8" height="22" rx="3" fill="#ff3da8"/><path d="M28 10h8M28 14h8M28 18h8" stroke="#fff" stroke-width="1" opacity=".6"/></svg></span><span class="fl" style="left:14%;top:-9%;--r:0deg;--d:3.8s;width:9%"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16Z" fill="#3DF2FF"/></svg></span></div><div class="cap"><h2>Get your make up.</h2><p>Pick your products and shades, tell us where you are, and we will get back to you.</p><button class="btn" data-open="makeup">Get your make up</button></div></article>
+    <article class="slide s3"><div class="cap"><h2>Debate. Win R1000.</h2><p>A new online room where real topics get real arguments. Best debater of the week takes the cash.</p><button class="btn" data-open="debate">Enter the debate</button></div></article>
   </div>
   <button class="arrow prev" aria-label="Previous image">&#8249;</button>
   <button class="arrow next" aria-label="Next image">&#8250;</button>
@@ -211,19 +226,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <small>This week's prize</small>
         <b>R1000</b>
         <p class="topic">Topic: Is feminism still needed today?</p>
-        <p style="color:var(--mute);font-size:.95rem">Open to women and men. Argue either side, as long as your points are backed by reasons. Topics rotate weekly and cover politics, gender, masculinity, culture and more.</p>
-        <p style="margin-top:20px"><a href="#contact" class="btn">Join the waitlist</a></p>
+        <p style="color:var(--mute);font-size:.95rem">There is one debate every week. Enter your details and, if you are picked, you will be announced here and invited to the live debate room. Open to women and men.</p>
+        <p style="margin-top:20px"><button class="btn" data-open="debate">Enter the debate</button></p>
       </div>
       <div class="panel">
         <h3>How it works</h3>
         <ul>
           <li>We post a new topic every week.</li>
-          <li>Join the chat room and debate in your own words.</li>
+          <li>Enter your details. If you are picked, you join the live Zoom debate room and make your case.</li>
           <li>Rule one: attack the argument, never the person. Hate speech and threats are removed.</li>
           <li>The community votes and our moderators review. One winner takes R1000.</li>
-          <li>Winners are announced when the week closes.</li>
+          <li>Picked debaters and the winner are announced here each week.</li>
         </ul>
       </div>
+    </div>
+    <div class="panel room">
+      <div><h3>The debate room</h3><p>The debate runs live on a Zoom video call. Picked debaters get the link by message, and the join button here goes live on debate day.</p></div>
+      <a id="zoomBtn" class="btn" target="_blank" rel="noopener" href="#debate">Join the live debate</a>
     </div>
   </div>
 </section>
@@ -286,9 +305,34 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <footer><div class="wrap"><span>&copy; 2026 The Zaza Connect</span><span>Built on data. Driven by results.</span></div></footer>
 
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt" hidden>
+  <div class="mbox">
+    <button class="mx" id="mx" aria-label="Close">&times;</button>
+    <h3 id="mt"></h3>
+    <iframe id="mf" title="Form"></iframe>
+    <a id="mo" class="alt" target="_blank" rel="noopener">Trouble loading? Open the form in a new tab</a>
+  </div>
+</div>
+
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* forms in a pop-up */
+  var F={strain:['Ask about a strain','VL2Xpj'],makeup:['Get your make up','ODOKQa'],debate:['Enter the weekly debate','PdVLR1']};
+  var md=document.getElementById('modal'),mf=document.getElementById('mf'),mt=document.getElementById('mt'),mo=document.getElementById('mo');
+  function shut(){md.hidden=true;mf.src='about:blank';document.body.style.overflow=''}
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){
+    var f=F[b.dataset.open];mt.textContent=f[0];mf.src='https://tally.so/embed/'+f[1]+'?hideTitle=1&alignLeft=1';
+    mo.href='https://tally.so/r/'+f[1];md.hidden=false;document.body.style.overflow='hidden'})});
+  document.getElementById('mx').onclick=shut;
+  md.addEventListener('click',function(e){if(e.target===md)shut()});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!md.hidden)shut()});
+
+  /* debate room: paste your Zoom meeting link between the quotes */
+  var ZOOM_LINK='';
+  var zb=document.getElementById('zoomBtn');
+  if(ZOOM_LINK){zb.href=ZOOM_LINK}else{zb.textContent='Room opens on debate day';zb.classList.add('ghost');zb.removeAttribute('target');zb.addEventListener('click',function(e){e.preventDefault()})}
 
   /* carousel */
   var sl=document.getElementById('slides'),dt=document.getElementById('dots'),sn=sl.children,bt=[];
