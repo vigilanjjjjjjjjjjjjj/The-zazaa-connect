@@ -42,12 +42,23 @@ nav ul a:hover{color:var(--cyan)}
 .slides::-webkit-scrollbar{display:none}
 .slide{position:relative;flex:0 0 100%;height:calc(100svh - 64px);min-height:460px;scroll-snap-align:start;display:flex;align-items:flex-end;background-size:cover;background-position:center}
 .s1{background-image:url(images/indoor-strain.jpg),radial-gradient(circle at 30% 40%,#1c6b3a,#06140b 70%)}
-.s2{background-image:url(images/makeup-set.jpg),radial-gradient(circle at 70% 40%,#c2247d,#1a0620 70%)}
+.s2{background-image:radial-gradient(circle at 72% 42%,#c2247d,#2a0a3d 45%,#070816 80%)}
 .s3{background-image:url(images/debate-community.jpg),radial-gradient(circle at 50% 40%,#3b2fd0,#070816 70%)}
 .slide::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,8,22,.92),rgba(7,8,22,.15) 60%)}
 .slide .cap{position:relative;z-index:2;padding:0 24px 100px;max-width:1120px;margin:0 auto;width:100%}
 .slide h2{font-size:clamp(1.8rem,5vw,3.6rem);max-width:18ch;margin-bottom:12px}
 .slide p{max-width:46ch;color:var(--ice);margin-bottom:22px}
+.stage{position:absolute;right:max(7%,40px);top:50%;transform:translateY(-52%);width:min(30vw,360px);aspect-ratio:9/10;z-index:1}
+.stage .ph{width:100%;height:100%;object-fit:cover;object-position:55% 25%;border-radius:30px;border:1px solid rgba(255,255,255,.3);box-shadow:0 0 70px rgba(255,61,168,.5),0 0 0 9px rgba(255,255,255,.05)}
+.fl{position:absolute;display:block;animation:fl var(--d,5s) ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(61,242,255,.55))}
+.fl svg{display:block;width:100%;height:auto}
+.fl:nth-child(even){animation-delay:-2s}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-18px) rotate(calc(var(--r) + 7deg))}}
+.s2 .cap{padding-right:44%}
+@media(max-width:860px){
+  .stage{right:auto;left:50%;top:5%;transform:translateX(-50%);width:min(56vw,290px)}
+  .s2 .cap{padding-right:24px}
+}
 .arrow{position:absolute;bottom:14px;z-index:5;width:44px;height:44px;line-height:1;border-radius:50%;border:1px solid var(--cyan);background:rgba(7,8,22,.6);color:var(--cyan);font-size:1.4rem;cursor:pointer;backdrop-filter:blur(6px);box-shadow:0 0 18px rgba(61,242,255,.35)}
 .arrow:hover{background:var(--cyan);color:var(--void)}
 .prev{left:16px}.next{right:16px}
@@ -152,7 +163,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <section class="show" aria-label="Featured">
   <div class="slides" id="slides" tabindex="0">
     <article class="slide s1"><div class="cap"><h2>Indoor grown. Top shelf.</h2><p>Hand-picked indoor strains, shown the way they deserve to be seen.</p><a href="#contact" class="btn">Ask about a strain</a><p class="age" style="margin:14px 0 0">18+ only. Know and follow your local laws.</p></div></article>
-    <article class="slide s2"><div class="cap"><h2>The makeup edit.</h2><p>Our favourite sets and shades, chosen for a flawless finish.</p><a href="#contact" class="btn">Shop the edit</a></div></article>
+    <article class="slide s2"><div class="stage"><img class="ph" src="images/makeup-model.jpg" alt="Model with a bold pink hairstyle taking a mirror selfie"><span class="fl" style="left:-20%;top:4%;--r:-14deg;--d:5.2s;width:17%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7ac8"/><stop offset="1" stop-color="#c2247d"/></linearGradient></defs><rect x="24" y="30" width="16" height="26" rx="3" fill="#1b1c3a" stroke="#3DF2FF" stroke-width="1.5"/><rect x="26" y="14" width="12" height="18" rx="2" fill="url(#g1)"/><path d="M26 14 L38 8 V14Z" fill="#ff3da8"/></svg></span><span class="fl" style="left:-26%;top:62%;--r:10deg;--d:6.4s;width:24%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CFF"/><stop offset="1" stop-color="#3DF2FF"/></linearGradient></defs><rect x="6" y="14" width="52" height="38" rx="6" fill="#1b1c3a" stroke="#8B5CFF" stroke-width="1.5"/><circle cx="19" cy="26" r="7" fill="#ff3da8"/><circle cx="45" cy="26" r="7" fill="url(#g2)"/><circle cx="19" cy="42" r="7" fill="#ffd27a"/><circle cx="45" cy="42" r="7" fill="#c2247d"/><path d="M10 52 L54 52" stroke="#8B5CFF"/></svg></span><span class="fl" style="right:-16%;top:0;--r:22deg;--d:5.8s;width:15%"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="29" y="26" width="6" height="32" rx="3" fill="#d9b88f"/><rect x="27" y="20" width="10" height="8" fill="#3DF2FF"/><path d="M32 4 C42 12 40 20 32 22 C24 20 22 12 32 4Z" fill="#ff3da8"/></svg></span><span class="fl" style="right:-22%;top:40%;--r:-8deg;--d:4.9s;width:17%"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3DF2FF"/><stop offset="1" stop-color="#8B5CFF"/></linearGradient></defs><rect x="20" y="28" width="24" height="28" rx="7" fill="url(#g4)"/><rect x="26" y="12" width="12" height="18" rx="2" fill="#1b1c3a" stroke="#ff3da8" stroke-width="1.5"/><rect x="27" y="36" width="10" height="12" rx="3" fill="rgba(255,255,255,.35)"/></svg></span><span class="fl" style="right:-18%;bottom:-2%;--r:12deg;--d:6.8s;width:21%"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="#1b1c3a" stroke="#ff3da8" stroke-width="2"/><circle cx="32" cy="32" r="17" fill="#3DF2FF" opacity=".25"/><path d="M22 26 Q28 18 38 20" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span><span class="fl" style="left:-17%;top:36%;--r:18deg;--d:5.5s;width:13%"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="26" y="26" width="12" height="34" rx="4" fill="#1b1c3a" stroke="#8B5CFF" stroke-width="1.5"/><rect x="28" y="6" width="8" height="22" rx="3" fill="#ff3da8"/><path d="M28 10h8M28 14h8M28 18h8" stroke="#fff" stroke-width="1" opacity=".6"/></svg></span><span class="fl" style="left:14%;top:-9%;--r:0deg;--d:3.8s;width:9%"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16Z" fill="#3DF2FF"/></svg></span></div><div class="cap"><h2>The makeup edit.</h2><p>Our favourite sets and shades, chosen for a flawless finish.</p><a href="#contact" class="btn">Shop the edit</a></div></article>
     <article class="slide s3"><div class="cap"><h2>Debate. Win R1000.</h2><p>A new online room where real topics get real arguments. Best debater of the week takes the cash.</p><a href="#debate" class="btn">Enter the debate</a></div></article>
   </div>
   <button class="arrow prev" aria-label="Previous image">&#8249;</button>
@@ -322,4 +333,38 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   if(!reduce)setInterval(function(){v1+=Math.random()*90+20;if(Math.random()<.18)v2+=1;show()},700);
 
   /* growth chart + bars, drawn when scrolled into view */
-  var ch=document.getElementById('chart'),cx2=ch.getContext('2
+  var ch=document.getElementById('chart'),cx2=ch.getContext('2d'),data=[40,48,55,70,88,110,140,185,240,310,410,540];
+  function chart(t){
+    var r=devicePixelRatio||1,w=ch.width=ch.offsetWidth*r,h=ch.height=ch.offsetHeight*r,pad=20*r;
+    cx2.clearRect(0,0,w,h);cx2.strokeStyle='#262A5C';cx2.lineWidth=r;
+    for(var i=0;i<4;i++){var y=pad+i*(h-2*pad)/3;cx2.beginPath();cx2.moveTo(0,y);cx2.lineTo(w,y);cx2.stroke()}
+    var max=560,pts=data.map(function(d,i){return[pad+i*(w-2*pad)/11,h-pad-(d/max)*(h-2*pad)*t]});
+    var gr=cx2.createLinearGradient(0,0,w,0);gr.addColorStop(0,'#3DF2FF');gr.addColorStop(.55,'#8B5CFF');gr.addColorStop(1,'#FF3DA8');
+    var fl=cx2.createLinearGradient(0,0,0,h);fl.addColorStop(0,'rgba(139,92,255,.35)');fl.addColorStop(1,'rgba(139,92,255,0)');
+    cx2.beginPath();pts.forEach(function(p,i){i?cx2.lineTo(p[0],p[1]):cx2.moveTo(p[0],p[1])});
+    cx2.lineTo(pts[11][0],h);cx2.lineTo(pts[0][0],h);cx2.closePath();cx2.fillStyle=fl;cx2.fill();
+    cx2.beginPath();pts.forEach(function(p,i){i?cx2.lineTo(p[0],p[1]):cx2.moveTo(p[0],p[1])});
+    cx2.strokeStyle=gr;cx2.lineWidth=3*r;cx2.lineJoin='round';cx2.stroke();
+    var e=pts[11];cx2.fillStyle='#FF3DA8';cx2.shadowColor='#FF3DA8';cx2.shadowBlur=18;cx2.beginPath();cx2.arc(e[0],e[1],5*r,0,6.283);cx2.fill();cx2.shadowBlur=0;
+  }
+  var done=false;
+  function play(){
+    if(done)return;done=true;
+    document.querySelectorAll('.bar i').forEach(function(b){b.style.width=b.dataset.w+'%'});
+    if(reduce){chart(1);return}
+    var s=null;(function f(ts){s=s||ts;var t=Math.min(1,(ts-s)/1600);chart(1-Math.pow(1-t,3));if(t<1)requestAnimationFrame(f)})(performance.now());
+  }
+  chart(reduce?1:0);
+  new IntersectionObserver(function(e){if(e[0].isIntersecting)play()},{threshold:.3}).observe(document.getElementById('results'));
+  addEventListener('resize',function(){if(done)chart(1)});
+
+  /* form: replace the action with your form service (Formspree, Tally, etc.) */
+  document.getElementById('lead').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target;if(!f.name.value.trim()||!/\S+@\S+\.\S+/.test(f.email.value)){f.name.focus();return}
+    document.getElementById('ok').style.display='block';f.reset();
+  });
+})();
+</script>
+</body>
+</html>
